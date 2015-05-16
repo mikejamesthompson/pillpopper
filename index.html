@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<meta name="robots" content="noindex, nofollow">
+	<link href="/static/css/main.css" rel="stylesheet" media="screen" />
+	<title>Pill Popper app</title>
+	<script type="text/javascript" src="/static/js/jquery-2.1.4.js"></script>
+	<script type="text/javascript" src="/static/js/jquery.timepicker.js"></script>
+	<script type="text/javascript" src="/static/js/main.js"></script>
+</head>
+ 
+<body>
+ 
+<form action="" method="post" id="reminder-setup" name="reminder-setup">
+
+<div>
+
+<label>How many times a day does the person need to take their medication?
+
+	<select id="frequency" name="frequency">
+		<option value="1" selected>1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		<option value="6">6</option>
+		<option value="7">7</option>
+		<option value="8">8</option>
+		<option value="9">9</option>
+		<option value="10">10</option>
+		<option value="11">11</option>
+		<option value="12">12</option>
+	</select>
+
+</label>
+ 
+ 
+<div id="timesduringday" name="timesduringday">
+	<p>The reminders will be sent at the following times: please edit these if you want to change them.</p>
+	<input type="text" value="7:00am">
+	<input type="text" value="12:00 midday">
+	<input type="text" value="5:00pm">
+</div>
+<!-- note - how will people format their input?
+maybe use dropdown menus?
+<div>
+<select id="timesaday" name="timesaday">
+<option value="1" selected>1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+</select>
+</div>
+-->
+ 
+<div id="message" name="message">
+<p>The reminders will use the following message: please edit this if you want to change it.</p>
+<input type="textarea" rows="3" cols="20" name="message" value="Hello! it is time to take your medication." />
+</div>
+ 
+<div id="timesduringday" name="timesduringday">
+<p>What is the person's mobile number?</p>
+<input type="text" name="phone_number" value="" />
+</div>
+ 
+<input value="Set up my reminders" name="submit" type="submit" />
+ 
+ 
+</form>
+ 
+
+</body>
+</html>
