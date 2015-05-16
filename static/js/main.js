@@ -22,10 +22,43 @@ $(document).ready(function(){
 		e.preventDefault();
 
 		var data = reminder_form.serializeArray();
+		
+		var telnumber = "";
+		var message = "";
+		var cronstring = "";
+		var timeDigits = "";
+		var audiourl = "";
+		var dataobject = {};
 
-		console.log(data);
+		data.forEach(function(formField) {
+			if (formField.name === "phone_number") {
+				telnumber = formField.value;
+			};
+			if (formField.name === "message") {
+				message = formField.value;
+			};
+			if (formField.name === "audio_url") {
+				audiourl = formField.value;
+			};
+			if (formField.name.lastIndexOf("time", 0) === 0) {
+				var timeDigit = formField.value.split(":")[0];
+				if (timeDigits == "") {
+					timeDigits = timeDigits + timeDigit;
+				} else {
+					timeDigits = timeDigits + "," + timeDigit;
+				};
+				cronstring = "0 " + timeDigits + " * * *";
+			};
+		});
 
+		dataobject.telnumber = telnumber;
+		dataobject.message = message;
+		dataobject.cronstring = cronstring;
+		dataobject.audiourl = audiourl;
+
+		var jsonresult = JSON.stringify(dataobject);
 	});
+
 
 	// Configure time to take based on frequency
 
