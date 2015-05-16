@@ -21,7 +21,7 @@ $(document).ready(function(){
 
 		e.preventDefault();
 
-		var data = reminder_form.serializeArray();
+		var data = reminder_form.serialize();
 
 		console.log(data);
 
@@ -41,11 +41,15 @@ $(document).ready(function(){
 
 		reminder_schedule_list.empty()
 
-		times.forEach(function(e){ 
+		times.forEach(function(e, n){ 
 
 			var time = template.clone().appendTo(reminder_schedule_list);
 
-			time.val();
+			var time_value = time.find("input");
+
+			time_value.attr('value', e);
+			time_value.attr('name', 'time_' + String(n));
+			time_value.attr('id', 'time_' + String(n));
 
 		});
 
