@@ -5,10 +5,10 @@
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<meta charset="UTF-8">
 	<meta name="robots" content="noindex, nofollow">
+	<link href="/static/css/jquery.timepicker.css" rel="stylesheet" media="screen" />
 	<link href="/static/css/main.css" rel="stylesheet" media="screen" />
 	<title>Pill Popper app</title>
 	<script type="text/javascript" src="/static/js/jquery-2.1.4.js"></script>
-	<script type="text/javascript" src="/static/js/jquery.timepicker.js"></script>
 	<script type="text/javascript" src="/static/js/main.js"></script>
 </head>
  
@@ -33,20 +33,22 @@
  
 <div id="timesduringday" name="timesduringday">
 	<p>The reminders will be sent at the following times: please edit these if you want to change them.</p>
+	
 	<ol id="reminder_schedule">
-		<li id="reminder_template"><input type="text" name="time_1" value="8:00am"></li>
+		<li id="reminder_template"><input type="text" name="time_1" value="8:00am" readonly></li>
 	</ol>
+
 </div>
 
  
 <div id="message" name="message">
 	<label>What's your message?
-	<input type="textarea" rows="3" cols="20" name="message" value="Hello! it is time to take your medication." /></label>
+	<textarea name="message" value=""></textarea></label>
 </div>
  
 <div id="timesduringday" name="timesduringday">
-<p>What is the person's mobile number?</p>
-<input type="text" name="phone_number" value="" />
+	<p>What is the person's mobile number?</p>
+	<input type="text" name="phone_number" value="" />
 </div>
  
 <input value="Set up my reminders" name="submit" type="submit" />
