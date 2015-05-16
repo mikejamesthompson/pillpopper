@@ -6,53 +6,69 @@
 	<meta charset="UTF-8">
 	<meta name="robots" content="noindex, nofollow">
 	<link href="./static/css/main.css" rel="stylesheet" media="screen" />
-	<title>Pill Popper app</title>
+	<title>Pill Popper App</title>
 	<script type="text/javascript" src="./static/js/jquery-2.1.4.js"></script>
-	<script type="text/javascript" src="./static/js/jquery.timepicker.js"></script>
 	<script type="text/javascript" src="./static/js/main.js"></script>
 </head>
  
 <body>
+
+<header class="site_header">
+
+	<h2>PillTimer</h2>
+
+</header>
+
+<div id="content">
  
-<form action="" method="post" id="reminder-setup" name="reminder-setup">
+	<form action="" method="post" id="reminder-setup" name="reminder-setup">
 
-<div>
+	<div>
 
-<h1>Create a new reminder</h1>
+	<h1>Create a new medication reminder</h1>
 
-<label>How many times a day does the person need to take their medication?
+	<div class="controls">
+		
+		<label for="frequency">How many times a day?</label>
+		
+		<select id="frequency" name="frequency">
+			<option value="0" selected> Please select</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+		</select>
+		
+		<div id="reminder-schedule">
 
-	<select id="frequency" name="frequency">
-		<option value="1" selected>1</option>
-		<option value="2">2</option>
-		<option value="3">3</option>
-		<option value="4">4</option>
-	</select>
+			<p>The reminders will be sent at the following times:</p>
+			
+			<ol>
+				<li id="reminder_template" class="reminder-time"><input type="text" name="time[1]" value="8:00am" readonly></li>
+			</ol>
 
-</label>
- 
-<div id="timesduringday" name="timesduringday">
-	<p>The reminders will be sent at the following times: please edit these if you want to change them.</p>
-	<ol id="reminder_schedule">
-		<li id="reminder_template"><input type="text" name="time_1" value="8:00am"></li>
-	</ol>
+		</div>
+
+		<label for="message">What's your message?</label>
+		<textarea name="message" value=""></textarea>
+
+		<label for="audio_url">Which audio message do you want to send?</label>
+
+		<select id="audio_url" name="audio_url">
+			<option value="http://servercode.co.uk/nhshackday/hi_mum_medication_reminder.mp3">Hi Mum!</option>
+			<option value="http://servercode.co.uk/nhshackday/its_fiona_mouthwash_reminder.mp3">Dental Hygienist</option>
+		</select>
+		 
+		<label for="phone_number">What phone number should we send them to?</label>
+		<input type="text" name="phone_number" value="" />
+
+	</div>
+
+	<input value="Create my reminder" name="submit" type="submit" class="submit" />
+	 
+	</form>
+
 </div>
-
- 
-<div id="message" name="message">
-	<label>What's your message?
-	<input type="textarea" rows="3" cols="20" name="message" value="Hello! it is time to take your medication." /></label>
-</div>
- 
-<div id="timesduringday" name="timesduringday">
-<p>What is the person's mobile number?</p>
-<input type="text" name="phone_number" value="" />
-</div>
- 
-<input value="Set up my reminders" name="submit" type="submit" />
- 
- 
-</form>
  
 
 </body>

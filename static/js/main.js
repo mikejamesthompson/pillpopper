@@ -5,12 +5,10 @@ $(document).ready(function(){
 	var audio_messages = [];
 
 	var schedule = {
-
-		1: ["8:00am"],
-		2: ["8:00am", "5:00pm"],
-		3: ["8:00am", "12:00pm", "5:00pm"],
-		4: ["8:00am", "11:00am", "2:00pm", "5:00pm"]
-
+		1: ["8:00"],
+		2: ["8:00", "17:00"],
+		3: ["8:00", "12:00", "17:00"],
+		4: ["8:00", "11:00", "14:00", "17:00"]
 	}
 
 	
@@ -64,7 +62,9 @@ $(document).ready(function(){
 
 	var frequency_selector = reminder_form.find('#frequency');
 
-	var reminder_schedule_list = reminder_form.find('#reminder_schedule');
+	var reminder_schedule_container = reminder_form.find('#reminder-schedule');
+
+	var reminder_schedule_list = reminder_schedule_container.find('ol');
 	
 	frequency_selector.change(function() {
 
@@ -74,13 +74,19 @@ $(document).ready(function(){
 
 		reminder_schedule_list.empty()
 
-		times.forEach(function(e){ 
+		times.forEach(function(t, n){ 
 
 			var time = template.clone().appendTo(reminder_schedule_list);
 
-			time.val();
+			var time_value = time.find("input");
+
+			time_value.attr('value', t);
+			time_value.attr('name', 'time_' + String(n));
+			time_value.attr('id', 'time_' + String(n));
 
 		});
+
+		reminder_schedule_container.show()
 
 	});
 
